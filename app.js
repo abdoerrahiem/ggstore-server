@@ -11,6 +11,11 @@ const cors = require('cors')
 const usersRouter = require('./src/routes/users')
 const dashboardRouter = require('./src/routes/dashboard')
 const categoryRouter = require('./src/routes/category')
+const nominalRouter = require('./src/routes/nominal')
+const voucherRouter = require('./src/routes/voucher')
+const bankRouter = require('./src/routes/bank')
+const paymentRouter = require('./src/routes/payment')
+const transactionRouter = require('./src/routes/transaction')
 
 const app = express()
 
@@ -43,6 +48,11 @@ app.use(
 app.use('/', usersRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/category', categoryRouter)
+app.use('/nominal', nominalRouter)
+app.use('/voucher', voucherRouter)
+app.use('/bank', bankRouter)
+app.use('/payment', paymentRouter)
+app.use('/transaction', transactionRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

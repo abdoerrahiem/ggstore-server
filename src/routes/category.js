@@ -6,7 +6,10 @@ const {
   updateCategoryView,
   updateCategoryAction,
   deleteCategoryAction,
-} = require('../controllers/categorycController')
+} = require('../controllers/categoryController')
+const { admin } = require('../../middlewares')
+
+router.use(admin)
 
 router.get('/', getCategories)
 router.get('/create', createCategoryView)

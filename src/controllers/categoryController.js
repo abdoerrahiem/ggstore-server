@@ -8,14 +8,10 @@ exports.getCategories = async (req, res) => {
     let alert = { message: alertMessage, status: alertStatus }
     const categories = await Category.find()
 
-    setTimeout(() => {
-      alert = null
-    }, 3000)
-
     res.render('admin/category/view_category', {
       categories,
       alert,
-      name: 'Abdur Rahim',
+      name: req.session.user.name,
       title: 'Category Page',
     })
   } catch (error) {
@@ -28,7 +24,7 @@ exports.getCategories = async (req, res) => {
 exports.createCategoryView = async (req, res) => {
   try {
     res.render('admin/category/create', {
-      name: 'Abdur Rahim',
+      name: req.session.user.name,
       title: 'Add Category Page',
     })
   } catch (error) {
@@ -64,7 +60,7 @@ exports.updateCategoryView = async (req, res) => {
 
     res.render('admin/category/edit', {
       category,
-      name: 'Abdur Rahim',
+      name: req.session.user.name,
       title: 'Update Category Page',
     })
   } catch (error) {
