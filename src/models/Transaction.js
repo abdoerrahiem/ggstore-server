@@ -31,12 +31,12 @@ let transactionSchema = mongoose.Schema(
       minlength: [3, 'Name must be between 3 - 225 characters'],
     },
 
-    accountUser: {
-      type: String,
-      require: [true, 'Account user is required'],
-      maxlength: [225, 'Account user must be between 3 - 225 characters'],
-      minlength: [3, 'Account user must be between 3 - 225 characters'],
-    },
+    // accountUser: {
+    //   type: String,
+    //   require: [true, 'Account user is required'],
+    //   maxlength: [225, 'Account user must be between 3 - 225 characters'],
+    //   minlength: [3, 'Account user must be between 3 - 225 characters'],
+    // },
 
     tax: {
       type: Number,

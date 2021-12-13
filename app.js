@@ -16,6 +16,8 @@ const voucherRouter = require('./src/routes/voucher')
 const bankRouter = require('./src/routes/bank')
 const paymentRouter = require('./src/routes/payment')
 const transactionRouter = require('./src/routes/transaction')
+const playerRouter = require('./src/routes/player')
+const authRouter = require('./src/routes/auth')
 
 const app = express()
 
@@ -53,6 +55,10 @@ app.use('/voucher', voucherRouter)
 app.use('/bank', bankRouter)
 app.use('/payment', paymentRouter)
 app.use('/transaction', transactionRouter)
+
+//API
+app.use('/api/v1/players', playerRouter)
+app.use('/api/v1/auth', authRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

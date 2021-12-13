@@ -38,14 +38,12 @@ let playerSchema = mongoose.Schema(
       default: 'Y',
     },
     avatar: { type: String },
-    fileName: { type: String },
     phoneNumber: {
       type: String,
       require: [true, 'Phone number is required'],
       maxlength: [13, 'Phone number must be between 9 - 13 characters'],
       minlength: [9, 'Phone number must be between 9 - 13 characters'],
     },
-
     favorite: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Category',
@@ -54,17 +52,17 @@ let playerSchema = mongoose.Schema(
   { timestamps: true }
 )
 
-playerSchema.path('email').validate(
-  async function (value) {
-    try {
-      const count = await this.model('Player').countDocuments({ email: value })
-      return !count
-    } catch (err) {
-      throw err
-    }
-  },
-  (attr) => `${attr.value} sudah terdaftar`
-)
+// playerSchema.path('email').validate(
+//   async function (value) {
+//     try {
+//       const count = await this.model('Player').countDocuments({ email: value })
+//       return !count
+//     } catch (err) {
+//       throw err
+//     }
+//   },
+//   (attr) => `${attr.value} already exists`
+// )
 
 playerSchema.pre('save', function (next) {
   this.password = bcrypt.hashSync(this.password, HASH_ROUND)

@@ -7,9 +7,9 @@ const auth = async (req, res, next) => {
       ? req.headers.authorization.replace('Bearer ', '')
       : null
 
-    const data = jwt.verify(token, config.jwtKey)
+    const data = jwt.verify(token, process.env.JWT_SECRET)
 
-    const player = await Player.findOne({ _id: data.player.id })
+    const player = await Player.findById(data.player.id)
 
     if (!player) {
       throw new Error()
