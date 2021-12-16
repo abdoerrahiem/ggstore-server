@@ -310,3 +310,13 @@ exports.updateProfile = async (req, res, next) => {
     }
   }
 }
+
+exports.getPayments = async (req, res) => {
+  try {
+    const payments = await Payment.find().populate('banks')
+
+    res.json({ data: payments })
+  } catch (err) {
+    res.status(500).json({ message: err.message || 'Internal server error' })
+  }
+}

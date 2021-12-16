@@ -9,7 +9,7 @@ exports.getPayments = async (req, res) => {
     let alert = { message: alertMessage, status: alertStatus }
     const payment = await Payment.find().populate('banks')
 
-    res.render('admin/payment/view_Payment', {
+    res.render('admin/payment/view_payment', {
       payment,
       alert,
       name: req.session.user.name,

@@ -8,7 +8,7 @@ exports.getBanks = async (req, res) => {
     let alert = { message: alertMessage, status: alertStatus }
     const bank = await Bank.find()
 
-    res.render('admin/bank/view_Bank', {
+    res.render('admin/bank/view_bank', {
       bank,
       alert,
       name: req.session.user.name,

@@ -12,12 +12,14 @@ const {
   checkout,
   getHistories,
   getHistoryDetails,
+  getPayments,
 } = require('../controllers/playerController')
 const { auth } = require('../../middlewares')
 
 router.get('/landingpage', getLandingPage)
 router.get('/:id/detail', getDetailPage)
 router.get('/category', getCategories)
+router.get('/payments', getPayments)
 router.post('/checkout', auth, checkout)
 router.get('/history', auth, getHistories)
 router.get('/history/:id/detail', auth, getHistoryDetails)
