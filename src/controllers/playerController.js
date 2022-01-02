@@ -92,7 +92,7 @@ exports.checkout = async (req, res) => {
         name: res_bank._doc.name,
         type: res_payment._doc.type,
         bankName: res_bank._doc.bankName,
-        noRekening: res_bank._doc.accNumber,
+        accNumber: res_bank._doc.accNumber,
       },
 
       name: req.player.name,
