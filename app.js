@@ -16,6 +16,7 @@ const voucherRouter = require('./src/routes/voucher')
 const bankRouter = require('./src/routes/bank')
 const paymentRouter = require('./src/routes/payment')
 const transactionRouter = require('./src/routes/transaction')
+const playersRouter = require('./src/routes/players')
 const playerRouter = require('./src/routes/player')
 const authRouter = require('./src/routes/auth')
 
@@ -55,6 +56,7 @@ app.use('/voucher', voucherRouter)
 app.use('/bank', bankRouter)
 app.use('/payment', paymentRouter)
 app.use('/transaction', transactionRouter)
+app.use('/players', playersRouter)
 
 //API
 app.use('/api/v1/players', playerRouter)
